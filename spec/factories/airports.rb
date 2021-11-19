@@ -24,10 +24,12 @@
 #
 # Indexes
 #
+#  index_airports_on_country_alpha2          (country_alpha2)
 #  index_airports_on_iata                    (iata) UNIQUE
 #  index_airports_on_iata_and_icao_and_name  (iata,icao,name)
 #  index_airports_on_icao                    (icao)
 #  index_airports_on_name                    (name)
+#  index_airports_on_passenger_volume        (passenger_volume) WHERE (passenger_volume > 0)
 #
 FactoryBot.define do
   factory :airport do
@@ -36,6 +38,7 @@ FactoryBot.define do
     source { 'OurAirports' }
     created_at { Time.current }
     updated_at { Time.current }
+    passenger_volume { rand 10000 }
 
     trait :fra do
       name { 'Frankfurt Airport' }

@@ -2,7 +2,7 @@ module API
   module V1
     class AirportsController < BaseController
       def index
-        airports = Airport.where(filter_params).all
+        airports = Airport.has_passenger_volume.where(filter_params).all
         paginate json: AirportBlueprint.render_as_hash(airports)
       end
 
