@@ -44,4 +44,5 @@ group :test do
   gem 'database_cleaner'
   gem 'rspec-rails'
   gem 'simplecov', require: false
+  gem 'pry'
 end
