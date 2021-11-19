@@ -3,7 +3,7 @@ module API
     class AirportsController < BaseController
       def index
         airports = Airport.where(filter_params).all
-        render json: AirportBlueprint.render(airports)
+        paginate json: AirportBlueprint.render_as_hash(airports)
       end
 
       private

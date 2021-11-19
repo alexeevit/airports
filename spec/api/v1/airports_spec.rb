@@ -13,6 +13,7 @@ RSpec.describe 'API::V1::AirportsController', type: :request do
 
       expect(response.status).to eq(200)
       expect(json.size).to eq(6)
+      expect(json.first).to match(name: 'Frankfurt Airport', iata: 'FRA', country: 'Germany')
     end
 
     it 'returns airports for specific countries' do
